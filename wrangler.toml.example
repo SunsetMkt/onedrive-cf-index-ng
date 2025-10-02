@@ -1,0 +1,19 @@
+# Wrangler configuration example for onedrive-cf-index-ng
+# Copy this file to wrangler.toml and update with your values
+
+name = "onedrive-cf-index-ng"
+compatibility_date = "2023-10-10"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database binding for OAuth token storage
+# You need to create a D1 database first with:
+#   wrangler d1 create onedrive-cf-index-db
+# Then initialize it with:
+#   wrangler d1 execute onedrive-cf-index-db --file=./schema.sql
+[[d1_databases]]
+binding = "ONEDRIVE_CF_INDEX_D1"
+database_name = "onedrive-cf-index-db"
+database_id = "" # Replace with your D1 database ID from the create command
+
+# For Cloudflare Pages deployment, you can also configure D1 bindings
+# in the Cloudflare dashboard under Settings > Functions > D1 database bindings
